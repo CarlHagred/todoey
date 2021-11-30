@@ -5,6 +5,7 @@ const ToDoForm = ({ callback }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    if (todo.length < 1) return;
     callback(todo);
     setTodo("");
   };

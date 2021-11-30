@@ -10,11 +10,24 @@ const App = () => {
     setToDoList([...toDoList, todo]);
   };
 
+  const deleteToDo = (index) => {
+    const replacement = [...toDoList];
+    replacement.splice(index, 1);
+    setToDoList(replacement);
+  };
+
   return (
     <div className="App">
+      <h1>TODOEY</h1>
       <ToDoForm callback={handleSubmit} />
-      {toDoList.map((todo) => {
-        return <ToDo todo={todo} />;
+      {toDoList.map((todo, index) => {
+        return (
+          <ToDo
+            key={index}
+            todo={todo}
+            deleteCallBack={() => deleteToDo(index)}
+          />
+        );
       })}
     </div>
   );
