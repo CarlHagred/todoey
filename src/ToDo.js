@@ -1,10 +1,13 @@
 import React from "react";
 import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
 
 const ToDo = ({ todo, deleteCallBack }) => {
   return (
     <>
-      <p>{todo}</p>
+      <Typography variant="h3" color="text.primary">
+        {todo}
+      </Typography>
       <Button variant="contained" onClick={deleteCallBack}>
         Delete
       </Button>

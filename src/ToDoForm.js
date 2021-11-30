@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import TextField from "@mui/material/TextField";
 
 const ToDoForm = ({ callback }) => {
   const [todo, setTodo] = useState("");
@@ -13,7 +14,8 @@ const ToDoForm = ({ callback }) => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <input
+        <TextField
+          variant="outlined"
           type="text"
           value={todo}
           onChange={(e) => setTodo(e.target.value)}

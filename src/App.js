@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import ToDo from "./ToDo";
 import ToDoForm from "./ToDoForm";
+import Typography from "@mui/material/Typography";
 
 const App = () => {
   const [toDoList, setToDoList] = useState([]);
@@ -18,7 +19,9 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1>TODOEY</h1>
+      <Typography variant="h1" color="text.primary">
+        TODOEY
+      </Typography>
       <ToDoForm callback={handleSubmit} />
       {toDoList.map((todo, index) => {
         return (
