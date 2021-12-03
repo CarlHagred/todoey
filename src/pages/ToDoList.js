@@ -16,6 +16,12 @@ const ToDoList = () => {
     setToDoList(replacement);
   };
 
+  const changeToDo = (index, newText) => {
+    const replacement = [...toDoList];
+    replacement[index] = newText;
+    setToDoList(replacement);
+  };
+
   return (
     <Grid container justifyContent="center">
       <div>
