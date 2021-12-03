@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import Typography from "@mui/material/Typography";
-
+import { Typography, Grid } from "@mui/material";
 import ToDo from "./../components/ToDo";
 import ToDoForm from "./../components/ToDoForm";
 
@@ -18,21 +17,24 @@ const ToDoList = () => {
   };
 
   return (
-    <div className="App">
-      <Typography variant="h1" color="text.primary">
-        TODOEY
-      </Typography>
-      <ToDoForm callback={handleSubmit} />
-      {toDoList.map((todo, index) => {
-        return (
-          <ToDo
-            key={index}
-            todo={todo}
-            deleteCallBack={() => deleteToDo(index)}
-          />
-        );
-      })}
-    </div>
+    <Grid container justifyContent="center">
+      <div>
+        <Typography variant="h1" color="text.primary">
+          TODOEY
+        </Typography>
+        <ToDoForm callback={handleSubmit} />
+        {toDoList.map((todo, index) => {
+          return (
+            <ToDo
+              key={index}
+              todo={todo}
+              deleteCallBack={() => deleteToDo(index)}
+              changeCallBack={() => changeToDo(index)}
+            />
+          );
+        })}
+      </div>
+    </Grid>
   );
 };
 
