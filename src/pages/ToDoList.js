@@ -35,7 +35,7 @@ const ToDoList = () => {
               key={index}
               todo={todo}
               deleteCallBack={() => deleteToDo(index)}
-              changeCallBack={() => changeToDo(index)}
+              changeCallBack={(text) => changeToDo(index, text)}
             />
           );
         })}

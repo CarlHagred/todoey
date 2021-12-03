@@ -10,37 +10,43 @@ import {
 
 const FormDialog = ({ todoText, changeText }) => {
   const [open, setOpen] = useState(false);
+  const [todo, setTodo] = useState(todoText);
 
   const handleClickOpen = () => {
     setOpen(true);
   };
 
-  const handleClose = () => {
+  const handleCancel = () => {
     setOpen(false);
-    changeText();
+  };
+
+  const handleChange = () => {
+    setOpen(false);
+    changeText(todo);
   };
 
   return (
     <div>
       <Button variant="outlined" onClick={handleClickOpen}>
-        Change text
+        Change
       </Button>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog open={open} onClose={handleCancel}>
         <DialogTitle>Change text</DialogTitle>
         <DialogContent>
           <TextField
             autoFocus
+            fullWidth
             margin="dense"
             id="name"
             label="New text"
-            fullWidth
-            helperText={todoText}
+            value={todo}
             variant="standard"
+            onChange={(e) => setTodo(e.target.value)}
           />
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Cancel</Button>
-          <Button onClick={handleClose}>Change</Button>
+          <Button onClick={handleCancel}>Cancel</Button>
+          <Button onClick={handleChange}>Change</Button>
         </DialogActions>
       </Dialog>
     </div>
