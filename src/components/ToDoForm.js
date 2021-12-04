@@ -15,6 +15,8 @@ const ToDoForm = ({ callback }) => {
     <>
       <form onSubmit={handleSubmit}>
         <TextField
+          autoFocus
+          fullWidth
           variant="outlined"
           type="text"
           value={todo}

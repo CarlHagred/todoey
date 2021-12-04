@@ -17,9 +17,9 @@ const ToDo = ({ todo, deleteCallBack, changeCallBack }) => {
   };
 
   return (
-    <Grid container spacing={2} justify="center">
+    <Grid container spacing={2} justify="center" justifyContent="center">
       <Grid item>
-        <Typography variant="h3" color="text.primary">
+        <Typography variant="h5" color="text.primary">
           {todo}
         </Typography>
       </Grid>
