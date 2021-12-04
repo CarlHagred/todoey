@@ -8,28 +8,20 @@ import {
   DialogTitle,
 } from "@mui/material";
 
-const FormDialog = ({ todoText, changeText }) => {
-  const [open, setOpen] = useState(false);
+const FormDialog = ({ todoText, changeText, open, close }) => {
   const [todo, setTodo] = useState(todoText);
 
-  const handleClickOpen = () => {
-    setOpen(true);
-  };
-
   const handleCancel = () => {
-    setOpen(false);
+    close();
   };
 
   const handleChange = () => {
-    setOpen(false);
+    close();
     changeText(todo);
   };
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Change
-      </Button>
       <Dialog open={open} onClose={handleCancel}>
         <DialogTitle>Change text</DialogTitle>
         <DialogContent>
